@@ -1,37 +1,72 @@
-from Linked_List_ import LinkedList
-from Node import Node
-import random
 
-def exit_comand():
-    ext = str(input("Stop program? Y/N "))
-    if (ext.upper() == "Y"):
-       exit()
-    elif ext.upper() == "N":
-        return
-    else:
-        return exit_comand()
+from Options import Options
+
+
 
 def enter_int(mesg):
     try:
-        return abs(int(input(mesg)))
+        return int(input(mesg))
     except ValueError:
         print("Your velue isn't valid")
         return enter_int(mesg)
 
-def enter_or_rand(linked_list):
-    comand = str(input("Enter array from keybord or random array? RANDOM/ENTER"))
-    if (comand.upper() == "RANDOM"):
-        linked_list.head = Node(random.randint(0, 100))
-        linked_list.random_linked_list()
-    elif (comand.upper() == "ENTER"):
-        linked_list.head = Node(input("Enter head element"))
-        linked_list.enter_list()
+input_options = {
+    1: "Enter from keyboard",
+    2: "Random list",
+    3: "Exit"
+}
+
+menu_options = {
+    1: "Add element",
+    2: "Delete element",
+    3: "Move",
+    4: "Print",
+    5: "Return"
+}
+
+def print_menu(options):
+    for key in options.keys():
+        print (key, '--', options[key] )
+
+def input_type(option, linked_list):
+    function = Options(linked_list)
+    return {
+        "1": function.option1,
+        "2": function.option2,
+        "3": function.option7
+    }.get(option)
+
+def options(option, linked_list):
+    function = Options(linked_list)
+    return {
+        "1": function.option3,
+        "2": function.option4,
+        "3": function.option5,
+        "4": function.option6,
+        "5": function.option8
+    }.get(option)
+
+def start(method, linked_list):
+    if method:
+        return method()
     else:
-        return enter_or_rand(linked_list)
+        print("Choose correct option")
+        menu(linked_list)
+
+
 
 def menu(linked_list):
+    print_menu(input_options)
+    input_type_ = input(f"Enter option between 1 and {len(input_options)}: ")
+    input_ = input_type(input_type_, linked_list)
+    if start(input_, linked_list) == -1:
+        print("Your value isn't valid")
+        menu(linked_list)
     while True:
-        exit_comand()
-        k = enter_int("Enter k: ")
-        enter_or_rand(linked_list)
-        linked_list.move(k)
+        print_menu(menu_options)
+        option = input(f"Enter option between 1 and {len(menu_options)}: ")
+        method = options(option, linked_list)
+        if start(method, linked_list) == -1:
+            break
+    linked_list.print(linked_list.head)
+    menu(linked_list)
