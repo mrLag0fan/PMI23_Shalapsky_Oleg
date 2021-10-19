@@ -25,10 +25,10 @@ class Options:
             self.option1()
 
     def option2(self):
-        self.db.del_by_ident(validdate.enter_int("Enter id: "))
+        self.db.del_by_ident(int(input("Enter id: ")))
 
     def option3(self):
-        self.db.edit_elem(validdate.enter_int("Enter id: "))
+        self.db.edit_elem(int(input("Enter id: ")))
 
     def option4(self):
         try:
@@ -41,6 +41,9 @@ class Options:
         self.db.print()
 
     def option6(self):
+        self.db.find_all(input("Enter data"))
+
+    def option7(self):
         file = open('out', 'w')
         file.truncate(0)
         file.close()

@@ -96,3 +96,6 @@ class Vaccination_Request:
     @validdate.check_end_time(start_time_=start_time)
     def end_time(self, end_time):
         self.__end_time = end_time
+
+    def get_all_fields(self):
+        return [x for x in vars(self).values()]

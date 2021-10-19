@@ -39,6 +39,13 @@ class Vaccination_Request_datebase:
         item = self.find_by_ID(id)
         return item
 
+    def find_all(self, val, ratio=80):
+        for i in self.datebase:
+            fields = i.get_all_fields()
+            for j in fields:
+                if str(j).find(str(val)) != -1:
+                    print(str(i))
+
     def add_elem(self, elem):
         vr = Vaccination_Request(*elem)
         self.datebase.append(vr)

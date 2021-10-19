@@ -8,7 +8,8 @@ menu_options = {
     3: "Edit",
     4: "Sort",
     5: "Print",
-    6: "Exit"
+    6: "Find",
+    7: "Exit"
 }
 
 def print_menu(options):
@@ -23,7 +24,8 @@ def options(option, linked_list):
         "3": function.option3,
         "4": function.option4,
         "5": function.option5,
-        "6": function.option6
+        "6": function.option6,
+        "7": function.option7
     }.get(option)
 
 def start(method, db):

@@ -1,0 +1,63 @@
+Element added: _Vaccination_Request__Id: 1
+_Vaccination_Request__Patient_Name: Oleg
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 0
+_Vaccination_Request__Date: 2020-12-30
+_Vaccination_Request__Start_Time: 19:20:00
+_Vaccination_Request__End_Time: 20:20:00
+Element added: _Vaccination_Request__Id: 4
+_Vaccination_Request__Patient_Name: Ben
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 1
+_Vaccination_Request__Date: 2020-03-11
+_Vaccination_Request__Start_Time: 17:01:00
+_Vaccination_Request__End_Time: 20:30:00
+Element added: _Vaccination_Request__Id: 6
+_Vaccination_Request__Patient_Name: Anna
+_Vaccination_Request__Patient_Phone: 9876543210
+_Vaccination_Request__Vaccine: 2
+_Vaccination_Request__Date: 2021-06-4
+_Vaccination_Request__Start_Time: 00:23:00
+_Vaccination_Request__End_Time: 00:40:00
+Element added: _Vaccination_Request__Id: 1
+_Vaccination_Request__Patient_Name: Oleg
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 0
+_Vaccination_Request__Date: 2020-12-30
+_Vaccination_Request__Start_Time: 19:20:00
+_Vaccination_Request__End_Time: 20:20:00
+Element added: _Vaccination_Request__Id: 4
+_Vaccination_Request__Patient_Name: Ben
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 1
+_Vaccination_Request__Date: 2020-03-11
+_Vaccination_Request__Start_Time: 17:01:00
+_Vaccination_Request__End_Time: 20:30:00
+Element added: _Vaccination_Request__Id: 6
+_Vaccination_Request__Patient_Name: Anna
+_Vaccination_Request__Patient_Phone: 9876543210
+_Vaccination_Request__Vaccine: 2
+_Vaccination_Request__Date: 2021-06-4
+_Vaccination_Request__Start_Time: 00:23:00
+_Vaccination_Request__End_Time: 00:40:00
+Element added: _Vaccination_Request__Id: 1
+_Vaccination_Request__Patient_Name: Oleg
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 0
+_Vaccination_Request__Date: 2020-12-30
+_Vaccination_Request__Start_Time: 19:20:00
+_Vaccination_Request__End_Time: 20:20:00
+Element added: _Vaccination_Request__Id: 4
+_Vaccination_Request__Patient_Name: Ben
+_Vaccination_Request__Patient_Phone: 1234567890
+_Vaccination_Request__Vaccine: 1
+_Vaccination_Request__Date: 2020-03-11
+_Vaccination_Request__Start_Time: 17:01:00
+_Vaccination_Request__End_Time: 20:30:00
+Element added: _Vaccination_Request__Id: 6
+_Vaccination_Request__Patient_Name: Anna
+_Vaccination_Request__Patient_Phone: 9876543210
+_Vaccination_Request__Vaccine: 2
+_Vaccination_Request__Date: 2021-06-4
+_Vaccination_Request__Start_Time: 00:23:00
+_Vaccination_Request__End_Time: 00:40:00
