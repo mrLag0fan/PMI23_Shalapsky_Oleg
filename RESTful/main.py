@@ -3,12 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask import send_from_directory, make_response
+import jwt
+from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 import os
 
 app = Flask(__name__)
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'db.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SECRET_KEY"] = 'secret'
 
 SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
