@@ -14,12 +14,165 @@
   "tags": [
     {
       "name": "VaccinationRequest"
+    },
+    {
+      "name": "Users"
     }
   ],
   "schemes": [
     "http"
   ],
   "paths": {
+    "/user": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Register a new User to the database",
+        "operationId": "addUser",
+         "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be added to the database",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all Users",
+        "operationId": "getUsers",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/VaccinationRequest"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Find User by ID",
+        "description": "Returns a single User",
+        "operationId": "getUserById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+           {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of User to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/VaccinationRequest"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Deletes a User",
+        "description": "",
+        "operationId": "deleteUser",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+           {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "User id to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    },
     "/vr": {
       "post": {
         "tags": [
@@ -35,13 +188,22 @@
           "application/json"
         ],
         "parameters": [
+           {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "in": "body",
             "name": "body",
             "description": "VaccinationRequest object that needs to be added to the database",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "#/definitions/VaccinationRequest"
             }
           }
         ],
@@ -60,11 +222,40 @@
         "produces": [
           "application/json"
         ],
+        "parameters": [
+           {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "#/definitions/VaccinationRequest"
             }
           },
           "400": {
@@ -81,13 +272,22 @@
         "tags": [
           "VaccinationRequest"
         ],
-        "summary": "Find pet by ID",
-        "description": "Returns a single pet",
-        "operationId": "getPetById",
+        "summary": "Find VaccinationRequest by ID",
+        "description": "Returns a single VaccinationRequest",
+        "operationId": "getVaccinationRequestById",
         "produces": [
           "application/json"
         ],
         "parameters": [
+           {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "id",
             "in": "path",
@@ -101,7 +301,7 @@
           "200": {
             "description": "successful operation",
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "#/definitions/VaccinationRequest"
             }
           },
           "400": {
@@ -127,6 +327,15 @@
         ],
         "parameters": [
            {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+           {
             "name": "id",
             "in": "path",
             "description": "ID of VaccinationRequest to return",
@@ -140,7 +349,7 @@
             "description": "VaccinationRequest object that needs to be added to the database",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Pet"
+              "$ref": "#/definitions/VaccinationRequest"
             }
           }
         ],
@@ -154,18 +363,21 @@
         "tags": [
           "VaccinationRequest"
         ],
-        "summary": "Deletes a pet",
+        "summary": "Deletes a VaccinationRequest",
         "description": "",
-        "operationId": "deletePet",
+        "operationId": "deleteVaccinationRequest",
         "produces": [
           "application/json"
         ],
         "parameters": [
-          {
-            "name": "api_key",
+           {
+            "name": "token",
             "in": "header",
-            "required": false,
-            "type": "string"
+            "description": "token",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "id",
@@ -188,7 +400,7 @@
     }
   },
   "definitions": {
-    "Pet": {
+    "VaccinationRequest": {
       "type": "object",
       "properties": {
         "patient_name": {
@@ -204,7 +416,7 @@
         },
         "date": {
           "type": "string",
-          "example": "21-11-12"
+          "example": "2021-11-12"
         },
         "start_time": {
           "type": "string",
@@ -213,6 +425,33 @@
         "end_time": {
           "type": "string",
           "example": "12:00"
+        }
+      },
+      "xml": {
+        "name": "VaccinationRequest"
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Oleg"
+        },
+        "surname": {
+          "type": "string",
+          "example": "Shalapsky"
+        },
+        "email": {
+          "type": "string",
+          "example": "email@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "1234"
+        },
+        "admin": {
+          "type": "boolean"
         }
       },
       "xml": {
